@@ -1,50 +1,37 @@
-## The Void Linux image/live/rootfs maker and installer
+### Dear User,
 
-This repository contains utilities for Void Linux:
+We moved our Github organisation to https://github.com/void-linux. Please move
+your local repositories and your forks to the new organisation:
 
- * installer (The Void Linux el-cheapo installer for x86)
- * mklive    (The Void Linux live image maker for x86)
+#### Change the remote of your clone
 
- * mkimage   (The Void Linux image maker for ARM platforms)
- * mkplatformfs (The Void Linux filesystem tool to produce a rootfs for a particular platform)
- * mkrootfs  (The Void Linux rootfs maker for ARM platforms)
- * mknet (Script to generate netboot tarballs for Void)
+```bash
+cd /path/to/void-mklive
+sed -i 's#/voidlinux/#/void-linux/#g' .git/config
+```
 
-#### Dependencies
+#### change your fork on GitHub
 
- * xbps>=0.45
- * qemu-user-static binaries (for mkrootfs)
+Please consider one of the two following methods:
 
-#### Usage
+##### remove and fork
 
-Type
+1. Go to `https://github.com/<YOUR ACCOUNT NAME>/void-mklive/settings`
 
-    $ make
+2. Scroll down to the *Danger Zone*.
 
-and then see the usage output:
+3. Press `Delete this repository`
 
-    $ ./mklive.sh -h
-    $ ./mkrootfs.sh -h
-    $ ./mkimage.sh -h
+4. Confirm by entering `void-mklive`.
 
-#### Examples
+5. Go to https://github.com/void-linux/void-mklive
 
-Build a native live image with runit and keyboard set to 'fr':
+6. Press the `fork` button
 
-    # ./mklive.sh -k fr
+7. Open a terminal.
 
-Build an i686 (on x86\_64) live image with some additional packages:
+8. Go to your local repository:
+   `cd /path/to/void-mklive`
 
-    # ./mklive.sh -a i686 -p 'vim rtorrent'
-
-Build an x86\_64 musl live image with packages stored in a local repository:
-
-    # ./mklive.sh -a x86_64-musl -r /path/to/host/binpkgs
-
-See the usage output for more information :-)
-
-
-These scripts are in flux, if you want to build a duplicate of a
-production image, its not a bad idea to ping maldridge on IRC.  This
-message will be removed when this readme is replaced with complete
-documentation.
+9. Force push to the new fork
+   `git push -f --all git@github.com:<YOUR ACCOUNT NAME>/${NAME}.git`
